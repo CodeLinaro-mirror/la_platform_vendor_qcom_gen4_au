@@ -553,7 +553,7 @@ PRODUCT_VENDOR_PROPERTIES += vendor.display.builtin_baseid_and_size=5,3 \
 PRODUCT_VENDOR_PROPERTIES += vendor.gralloc.use_dma_buf_heaps=1
 
 # Disable boot animation
-PRODUCT_VENDOR_PROPERTIES += debug.sf.nobootanimation=1
+#PRODUCT_VENDOR_PROPERTIES += debug.sf.nobootanimation=1
 
 # Enable car power manager for LPM(LowPowerMode)
 PRODUCT_VENDOR_PROPERTIES += persist.vendor.car.lpm=true
@@ -629,15 +629,16 @@ PRODUCT_PACKAGES += qcar-gsi.avbpubkey
 
 #Bringups
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.headless=1 \
-    config.disable_noncore=true \
-    config.disable_systemui=true \
     sys.usb.configfs=1 \
     persist.sys.usb.config=adb \
 
-TARGET_IS_HEADLESS := true
-TARGET_DISABLE_DISPLAY := true
-TARGET_DISABLE_AIS_DLKM := true
+#    ro.config.headless=1 \
+    config.disable_noncore=true \
+    config.disable_systemui=true \
+
+TARGET_IS_HEADLESS := false
+TARGET_DISABLE_DISPLAY := false
+TARGET_DISABLE_AIS_DLKM := false
 EXCLUDE_LOCATION_FEATURES := true
 
 TARGET_USES_QMAA := true
@@ -650,7 +651,7 @@ TARGET_USES_QMAA_OVERRIDE_CAMERA  := true
 TARGET_USES_QMAA_OVERRIDE_CVP  := false
 TARGET_USES_QMAA_OVERRIDE_DATA_NET := false
 TARGET_USES_QMAA_OVERRIDE_DPM  := false
-TARGET_USES_QMAA_OVERRIDE_DRM  := false
+TARGET_USES_QMAA_OVERRIDE_DRM  := true
 TARGET_USES_QMAA_OVERRIDE_EID := false
 TARGET_USES_QMAA_OVERRIDE_FASTCV  := true
 TARGET_USES_QMAA_OVERRIDE_FASTRPC := false
