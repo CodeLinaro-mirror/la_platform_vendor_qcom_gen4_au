@@ -49,8 +49,8 @@ on early-init && property:ro.boot.audio=""
 
 on early-init && property:ro.boot.audio=audioreach
     setprop vendor.audio.feature.mdf.enable "true"
-    setprop ro.hardware.audio.primary "msmnile.ar"
-    setprop ro.hardware.soundtrigger.primary "msmnile.ar"
+    setprop ro.hardware.audio.primary "gen4.ar"
+    setprop ro.hardware.soundtrigger.primary "gen4.ar"
 
 service ais_server /system/vendor/bin/ais_server
     class core
