@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved
+    SPDX-License-Identifier: BSD-3-Clause-Clear
+-->
+
+<permissions>
+    <feature name="com.google.android.automotive.gas.hardware.version.major" version="3" />
+    <feature name="com.google.android.automotive.gas.hardware.version.minor" version="0" />
+    <feature name="com.google.android.automotive.gas.software.version.major" version="0" />
+    <feature name="com.google.android.automotive.gas.software.version.minor" version="0" />
+</permissions>
+
