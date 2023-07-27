@@ -43,19 +43,15 @@ TARGET_USES_AOSP_FOR_WLAN := true
 BOARD_HAS_QCOM_WLAN := true
 ENABLE_CAR_POWER_MANAGER := true
 
-SYSTEMEXT_SEPARATE_PARTITION_ENABLE = true
-TARGET_USES_QSSI := true
-PRODUCT_ENFORCE_VINTF_MANIFEST := true
-
 #Enable Userspace Restart
 $(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
 
 # Dynamic-partition enabled by default
-#BOARD_DYNAMIC_PARTITION_ENABLE := true
-#ifeq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
+BOARD_DYNAMIC_PARTITION_ENABLE := true
+ifeq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
-#BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
-#PRODUCT_BUILD_SUPER_PARTITION := true
+BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
+PRODUCT_BUILD_SUPER_PARTITION := true
 PRODUCT_PACKAGES += fastbootd
 TARGET_HIBERNATION_SECURE_ENABLE := true
 TARGET_HAS_MDSPRPCD := true
@@ -89,13 +85,13 @@ else
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab_non_AB_dynamic_partition_variant.qti:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
 endif
 endif #TARGET_BOARD_DERIVATIVE_SUFFIX
+endif
 #PRODUCT_BUILD_SYSTEM_IMAGE := true
-PRODUCT_BUILD_SYSTEM_IMAGE := false
 PRODUCT_BUILD_SYSTEM_OTHER_IMAGE := false
-PRODUCT_BUILD_VENDOR_IMAGE := true
+#PRODUCT_BUILD_VENDOR_IMAGE := true
 PRODUCT_BUILD_PRODUCT_IMAGE := false
 PRODUCT_BUILD_PRODUCT_SERVICES_IMAGE := false
-PRODUCT_BUILD_ODM_IMAGE := false
+#PRODUCT_BUILD_ODM_IMAGE := true
 PRODUCT_BUILD_CACHE_IMAGE := false
 PRODUCT_BUILD_RAMDISK_IMAGE := true
 PRODUCT_BUILD_USERDATA_IMAGE := true
@@ -193,7 +189,7 @@ ifeq ($(TARGET_NO_QTI_WFD),)
 endif
 
 # Ethernet configuration file
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
 
 # Copy the testscripts from the qssi folder as it was moved to QSSI folder.
@@ -411,6 +407,7 @@ PRODUCT_VENDOR_PROPERTIES += media.stagefright.enable-player=true \
                               mmp.enable.3g2=true \
                               media.aac_51_output_enabled=true \
                               mm.enable.smoothstreaming=true \
+                              vendor.mm.enable.qcom_parser=63963135 \
                               persist.mm.enable.prefetch=true
 
 # system props for the data modules
