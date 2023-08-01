@@ -134,7 +134,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <!-- gatekeeper -->
-    <!--
     <hal format="hidl">
        <name>android.hardware.gatekeeper</name>
        <transport>hwbinder</transport>
@@ -143,7 +142,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
            <name>IGatekeeper</name>
            <instance>default</instance>
        </interface>
-   </hal> -->
+    </hal>
     <!-- playready HAL service -->
     <hal format="hidl">
         <name>android.hardware.drm</name>
