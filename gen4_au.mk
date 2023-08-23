@@ -12,7 +12,7 @@ ALLOW_MISSING_DEPENDENCIES := true
 ENABLE_AB ?= true
 # Enable virtual-ab by default
 ifeq ($(ENABLE_AB), true)
-   ENABLE_VIRTUAL_AB := false
+   ENABLE_VIRTUAL_AB := true
 endif
 ifeq ($(ENABLE_VIRTUAL_AB), true)
   # Enable virtual A/B compression
