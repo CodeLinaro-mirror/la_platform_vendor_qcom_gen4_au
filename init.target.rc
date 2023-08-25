@@ -42,7 +42,6 @@ on early-init
     start vendor.adsprpcd
     start vendor.adsprpcd_audiopd
     start audiod
-    start esplash
 
 on early-init && property:ro.boot.audio=""
     setprop vendor.audio.card.def "/vendor/etc/card-defs-dummy.xml"
@@ -94,6 +93,7 @@ on fs
 
 on late-fs
     mount_all /vendor/etc/fstab.qcom --late
+    start esplash
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
