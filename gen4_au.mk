@@ -128,11 +128,10 @@ PRODUCT_NAME := gen4_au
 PRODUCT_DEVICE := gen4_au
 PRODUCT_BRAND := qti
 PRODUCT_MODEL := gen4_au for arm64
-PRODUCT_MANUFACTURER := qti
+PRODUCT_MANUFACTURER := Qualcomm
 
 PRODUCT_VENDOR_PROPERTIES += \
     ro.soc.manufacturer=$(PRODUCT_MANUFACTURER) \
-    ro.soc.model=$(PRODUCT_DEVICE)
 
 #Initial bringup flags
 
