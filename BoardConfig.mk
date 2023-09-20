@@ -75,6 +75,8 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 -include $(QCPATH)/common/gen4_au/BoardConfigVendor.mk
 
+SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/lemans_tz_security_profile.xml
+
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := true
 BOARD_USES_WIPOWER := true
