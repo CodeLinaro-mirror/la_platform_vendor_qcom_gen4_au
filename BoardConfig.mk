@@ -194,11 +194,14 @@ BOARD_BOOTCONFIG += androidboot.audio=audioreach
 ifeq ($(TARGET_CONSOLE_ENABLED),true)
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 earlycon=qcom_geni,0xa90000 qcom_geni_serial.con_enabled=1
 BOARD_BOOTCONFIG += androidboot.console=ttyMSM0
-BOARD_KERNEL_CMDLINE += slub_debug=FZPU
 else
 ifeq ($(TARGET_CONSOLE_ENABLED),false)
 BOARD_KERNEL_CMDLINE += qcom_geni_serial.con_enabled=0
 endif
+endif
+
+ifneq ($(TARGET_BUILD_VARIANT),user)
+BOARD_KERNEL_CMDLINE += slub_debug=FZPU
 endif
 
 BOARD_EGL_CFG := device/qcom/$(TARGET_BOARD_PLATFORM)/egl.cfg
