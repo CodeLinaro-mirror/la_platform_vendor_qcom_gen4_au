@@ -51,7 +51,7 @@ on early-init && property:ro.boot.audio=audioreach
     setprop ro.hardware.audio.primary "gen4.ar"
     setprop ro.hardware.soundtrigger.primary "gen4.ar"
 
-service ais_server /system/vendor/bin/ais_server
+service qcxserver /system/vendor/bin/qcxserver
     class core
     user system
     group camera input graphics
@@ -61,7 +61,7 @@ service ais_server /system/vendor/bin/ais_server
 
 on init
     mkdir /dev/socket/camera 0770 system camera
-    start ais_server
+    start qcxserver
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
     write /dev/stune/schedtune.colocate 0
