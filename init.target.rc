@@ -131,8 +131,6 @@ on post-fs-data
 # For cpusets initialize for Silver Only first and then Silver + Gold
 # Silver Only configuration cannot work with 0-7
 on boot
-    start audionxp
-    start audioexp
     start agmplay
     write /sys/kernel/boot_kpi/kpi_values "M - audio agm play"
     chown system system /sys/kernel/hbtp/display_pwr
@@ -346,24 +344,6 @@ service acdb_loader_service /vendor/bin/acdb_loader_service
     class main
     user system
     group system wakelock audio
-    capabilities BLOCK_SUSPEND
-    oneshot
-    disabled
-
-#audio nxp
-service audionxp /vendor/bin/audio-nxp-auto
-    class main
-    user system
-    group system wakelock
-    capabilities BLOCK_SUSPEND
-    oneshot
-    disabled
-
-#audio exp
-service audioexp /vendor/bin/exp_dac_test 1
-    class main
-    user system
-    group system wakelock
     capabilities BLOCK_SUSPEND
     oneshot
     disabled
