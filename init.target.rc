@@ -93,7 +93,6 @@ on fs
 
 on late-fs
     mount_all /vendor/etc/fstab.qcom --late
-    start esplash
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
