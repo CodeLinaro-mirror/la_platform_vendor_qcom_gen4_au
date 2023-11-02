@@ -61,7 +61,7 @@ service qcxserver /system/vendor/bin/qcxserver
 
 on init
     mkdir /dev/socket/camera 0770 system camera
-    start qcxserver
+    # start qcxserver
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
     write /dev/stune/schedtune.colocate 0
