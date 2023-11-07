@@ -37,7 +37,7 @@ TARGET_NO_QTI_WFD := true
 BOARD_HAVE_QCOM_FM := false
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := false
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
-#TARGET_USES_GAS := true
+TARGET_USES_GAS := true
 TARGET_FWK_SUPPORTS_AV_VALUEADDS := false
 TARGET_USES_AOSP_FOR_WLAN := true
 BOARD_HAS_QCOM_WLAN := true
@@ -573,11 +573,6 @@ PRODUCT_VENDOR_PROPERTIES += ro.radio.noril=true
 
 # Default wifi country code
 PRODUCT_VENDOR_PROPERTIES += ro.boot.wificountrycode=us
-
-#Copy supported features list
-ifeq ($(TARGET_USES_GAS),true)
-PRODUCT_COPY_FILES += device/qcom/gen4_au/gen4_au_features.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/gen4_au_features.xml
-endif
 
 #for Emac
 PRODUCT_PACKAGES += emac_perf_settings.sh
