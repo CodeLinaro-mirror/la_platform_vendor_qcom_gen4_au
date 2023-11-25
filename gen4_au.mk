@@ -560,7 +560,7 @@ PRODUCT_VENDOR_PROPERTIES += vendor.display.builtin_baseid_and_size=5,3 \
 PRODUCT_VENDOR_PROPERTIES += vendor.gralloc.use_dma_buf_heaps=1
 
 # Disable boot animation
-#PRODUCT_VENDOR_PROPERTIES += debug.sf.nobootanimation=1
+PRODUCT_VENDOR_PROPERTIES += debug.sf.nobootanimation=1
 
 # Enable car power manager for LPM(LowPowerMode)
 PRODUCT_VENDOR_PROPERTIES += persist.vendor.car.lpm=true
