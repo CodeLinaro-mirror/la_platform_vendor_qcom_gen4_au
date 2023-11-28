@@ -199,7 +199,7 @@ TARGET_USES_QCOM_BSP := false
 
 BOARD_BOOTCONFIG := androidboot.hardware=qcom androidboot.memcg=1 androidboot.usbcontroller=a600000.dwc3 androidboot.recover_usb=1 androidboot.load_modules_parallel=true
 
-BOARD_KERNEL_CMDLINE := lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=4096 loop.max_part=7 kvm-arm.mode=nvhe hibernate=nocompress noswap_randomize pcie_ports=compat
+BOARD_KERNEL_CMDLINE := lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=4096 loop.max_part=7 kvm-arm.mode=nvhe hibernate=nocompress noswap_randomize pcie_ports=compat mem=12G
 BOARD_BOOTCONFIG += androidboot.audio=audioreach
 
 ifeq ($(BOARD_SUPPORTS_RAMDISK_EARLY_INIT),true)
