@@ -49,7 +49,7 @@ on early-init && property:ro.boot.audio=""
 on early-init && property:ro.boot.audio=audioreach
     setprop vendor.audio.feature.mdf.enable "true"
     setprop ro.hardware.audio.primary "gen4.ar"
-    setprop ro.hardware.soundtrigger.primary "gen4.ar"
+    setprop ro.hardware.sound_trigger.primary "gen4.ar"
 
 service qcxserver /system/vendor/bin/qcxserver
     class core
