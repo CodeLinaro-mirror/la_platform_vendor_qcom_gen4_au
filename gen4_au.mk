@@ -37,7 +37,7 @@ TARGET_NO_QTI_WFD := true
 BOARD_HAVE_QCOM_FM := false
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := false
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
-#TARGET_USES_GAS := true
+TARGET_USES_GAS := true
 TARGET_FWK_SUPPORTS_AV_VALUEADDS := false
 TARGET_USES_AOSP_FOR_WLAN := true
 BOARD_HAS_QCOM_WLAN := true
@@ -128,11 +128,10 @@ PRODUCT_NAME := gen4_au
 PRODUCT_DEVICE := gen4_au
 PRODUCT_BRAND := qti
 PRODUCT_MODEL := gen4_au for arm64
-PRODUCT_MANUFACTURER := qti
+PRODUCT_MANUFACTURER := Qualcomm
 
 PRODUCT_VENDOR_PROPERTIES += \
     ro.soc.manufacturer=$(PRODUCT_MANUFACTURER) \
-    ro.soc.model=$(PRODUCT_DEVICE)
 
 #Initial bringup flags
 
@@ -561,7 +560,7 @@ PRODUCT_VENDOR_PROPERTIES += vendor.display.builtin_baseid_and_size=5,3 \
 PRODUCT_VENDOR_PROPERTIES += vendor.gralloc.use_dma_buf_heaps=1
 
 # Disable boot animation
-#PRODUCT_VENDOR_PROPERTIES += debug.sf.nobootanimation=1
+PRODUCT_VENDOR_PROPERTIES += debug.sf.nobootanimation=1
 
 # Enable car power manager for LPM(LowPowerMode)
 PRODUCT_VENDOR_PROPERTIES += persist.vendor.car.lpm=true
@@ -574,11 +573,6 @@ PRODUCT_VENDOR_PROPERTIES += ro.radio.noril=true
 
 # Default wifi country code
 PRODUCT_VENDOR_PROPERTIES += ro.boot.wificountrycode=us
-
-#Copy supported features list
-ifeq ($(TARGET_USES_GAS),true)
-PRODUCT_COPY_FILES += device/qcom/gen4_au/gen4_au_features.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/gen4_au_features.xml
-endif
 
 #for Emac
 PRODUCT_PACKAGES += emac_perf_settings.sh

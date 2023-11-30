@@ -93,7 +93,6 @@ on fs
 
 on late-fs
     mount_all /vendor/etc/fstab.qcom --late
-    start esplash
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
@@ -131,8 +130,6 @@ on post-fs-data
 # For cpusets initialize for Silver Only first and then Silver + Gold
 # Silver Only configuration cannot work with 0-7
 on boot
-    start audionxp
-    start audioexp
     start agmplay
     write /sys/kernel/boot_kpi/kpi_values "M - audio agm play"
     chown system system /sys/kernel/hbtp/display_pwr
@@ -180,9 +177,8 @@ on property:service.bootanim.exit=1
 on property:sys.boot_completed=1
     write /sys/kernel/boot_kpi/kpi_values "K - USER Android Boot Complete"
     setprop vendor.sys.boot_completed 1
-
-    # Enable WLAN cold boot calibration
-    write /sys/kernel/cnss/fs_ready 1
+#Load WLAN driver
+    start wlan_multiko
 
 on property:init.svc.surfaceflinger=running
     write /sys/kernel/boot_kpi/kpi_values "M - USER SurfaceFlinger Start"
@@ -346,24 +342,6 @@ service acdb_loader_service /vendor/bin/acdb_loader_service
     class main
     user system
     group system wakelock audio
-    capabilities BLOCK_SUSPEND
-    oneshot
-    disabled
-
-#audio nxp
-service audionxp /vendor/bin/audio-nxp-auto
-    class main
-    user system
-    group system wakelock
-    capabilities BLOCK_SUSPEND
-    oneshot
-    disabled
-
-#audio exp
-service audioexp /vendor/bin/exp_dac_test 1
-    class main
-    user system
-    group system wakelock
     capabilities BLOCK_SUSPEND
     oneshot
     disabled
