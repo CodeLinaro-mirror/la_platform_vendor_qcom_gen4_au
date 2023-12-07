@@ -77,6 +77,7 @@ on init
     start acdb_loader_service
     write /sys/kernel/boot_kpi/kpi_values "M - audio_hal_plugin_service Start"
     start audio_hal_plugin_service
+    start audioexp
 
 on late-init
     start automotive_display
@@ -342,6 +343,15 @@ service acdb_loader_service /vendor/bin/acdb_loader_service
     class main
     user system
     group system wakelock audio
+    capabilities BLOCK_SUSPEND
+    oneshot
+    disabled
+
+#audio exp
+service audioexp /vendor/bin/exp_dac_test 2
+    class main
+    user system
+    group system wakelock
     capabilities BLOCK_SUSPEND
     oneshot
     disabled
