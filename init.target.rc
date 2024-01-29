@@ -257,15 +257,6 @@ service emac_rps_setting /system/vendor/bin/sh /vendor/bin/emac_rps_settings.sh 
     user root
     oneshot
 
-service vendor.thermal-engine /vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   socket thermal-send-rule stream 0660 system system
-   group root
-
 service vendor.cdsprpcd /vendor/bin/cdsprpcd
    class main
    user system
