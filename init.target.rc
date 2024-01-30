@@ -30,6 +30,7 @@
 import /vendor/etc/init/hw/init.qti.kernel.rc
 
 on early-init
+    umount /vendor_early_services/vendor/firmware_mnt
     write /proc/sys/kernel/sched_boost 1
     chown system system /sys/kernel/boot_kpi/kpi_values
     symlink /data/tombstones /tombstones
