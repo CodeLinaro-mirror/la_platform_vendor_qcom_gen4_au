@@ -318,6 +318,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
        openavb_harness \
        gptp \
+       libgptp \
+       libgptp_test \
        mrpd \
        libopenavb \
        libopenavb_intf_audio_stream \
