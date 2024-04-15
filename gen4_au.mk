@@ -55,13 +55,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
 #BOARD_DYNAMIC_PARTITION_ENABLE := true
 #ifeq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
-#BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
-#PRODUCT_BUILD_SUPER_PARTITION := true
+BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := false
+PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_PACKAGES += fastbootd
 TARGET_HIBERNATION_SECURE_ENABLE := true
 TARGET_HAS_MDSPRPCD := true
-# Enable System_ext
-PRODUCT_BUILD_SYSTEM_EXT_IMAGE := true
 
 # Mismatch in the uses-library tags between build system and the manifest leads
 # to soong APK manifest_check tool errors. Enable the flag to fix this.
@@ -94,6 +92,7 @@ endif #TARGET_BOARD_DERIVATIVE_SUFFIX
 #PRODUCT_BUILD_SYSTEM_IMAGE := true
 PRODUCT_BUILD_SYSTEM_IMAGE := false
 PRODUCT_BUILD_SYSTEM_OTHER_IMAGE := false
+PRODUCT_BUILD_SYSTEM_EXT_IMAGE := false
 PRODUCT_BUILD_VENDOR_IMAGE := true
 PRODUCT_BUILD_PRODUCT_IMAGE := false
 PRODUCT_BUILD_PRODUCT_SERVICES_IMAGE := false
