@@ -43,6 +43,7 @@ TARGET_USES_AOSP_FOR_WLAN := true
 BOARD_HAS_QCOM_WLAN := true
 ENABLE_CAR_POWER_MANAGER := true
 ENABLE_FASTRPC_DAEMONS := true
+TARGET_USES_SOFTSKU := true
 
 SYSTEMEXT_SEPARATE_PARTITION_ENABLE = true
 TARGET_USES_QSSI := true
@@ -55,13 +56,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
 #BOARD_DYNAMIC_PARTITION_ENABLE := true
 #ifeq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
-#BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
-#PRODUCT_BUILD_SUPER_PARTITION := true
+BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := false
+PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_PACKAGES += fastbootd
 TARGET_HIBERNATION_SECURE_ENABLE := true
 TARGET_HAS_MDSPRPCD := true
-# Enable System_ext
-PRODUCT_BUILD_SYSTEM_EXT_IMAGE := true
 
 # Mismatch in the uses-library tags between build system and the manifest leads
 # to soong APK manifest_check tool errors. Enable the flag to fix this.
@@ -94,6 +93,7 @@ endif #TARGET_BOARD_DERIVATIVE_SUFFIX
 #PRODUCT_BUILD_SYSTEM_IMAGE := true
 PRODUCT_BUILD_SYSTEM_IMAGE := false
 PRODUCT_BUILD_SYSTEM_OTHER_IMAGE := false
+PRODUCT_BUILD_SYSTEM_EXT_IMAGE := false
 PRODUCT_BUILD_VENDOR_IMAGE := true
 PRODUCT_BUILD_PRODUCT_IMAGE := false
 PRODUCT_BUILD_PRODUCT_SERVICES_IMAGE := false
@@ -617,7 +617,6 @@ PRODUCT_PACKAGES += vndservicemanager
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
 PRODUCT_PACKAGES += android.hardware.dumpstate-service.example \
-                    android.hardware.thermal@2.0-service.mock \
                     android.hardware.health-service.example
 
 PRODUCT_PACKAGES += android.hardware.neuralnetworks@1.0.vendor \
@@ -698,6 +697,7 @@ TARGET_USES_QMAA_OVERRIDE_WLAN    := true
 TARGET_USES_QMAA_OVERRIDE_VIDEO   := true
 TARGET_USES_QMAA_OVERRIDE_SMCINVOKE := true
 TARGET_ENABLE_QSEECOM := false
+TARGET_ENABLE_QSEECOM_COMPAT := true
 
 TARGET_USES_QMAA_OVERRIDE_CRYPTFSHW := true
 QMAA_HAL_LIST := audio video camera display sensors gps

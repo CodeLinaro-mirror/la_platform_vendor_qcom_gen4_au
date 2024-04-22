@@ -30,6 +30,7 @@
 import /vendor/etc/init/hw/init.qti.kernel.rc
 
 on early-init
+    umount /vendor_early_services/vendor/firmware_mnt
     write /proc/sys/kernel/sched_boost 1
     chown system system /sys/kernel/boot_kpi/kpi_values
     symlink /data/tombstones /tombstones
@@ -255,15 +256,6 @@ service vendor.sec_nvm /vendor/bin/sec_nvm
 service emac_rps_setting /system/vendor/bin/sh /vendor/bin/emac_rps_settings.sh 1 18
     user root
     oneshot
-
-service vendor.thermal-engine /vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   socket thermal-send-rule stream 0660 system system
-   group root
 
 service vendor.cdsprpcd /vendor/bin/cdsprpcd
    class main
