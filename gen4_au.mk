@@ -261,10 +261,12 @@ PRODUCT_PACKAGES += fs_config_files
 PRODUCT_PACKAGES += update_engine \
     update_engine_client \
     update_verifier \
-    bootctrl.gen4 \
     android.hardware.boot@1.2-impl-qti \
     android.hardware.boot@1.2-impl-qti.recovery \
     android.hardware.boot@1.2-service
+
+#Required for gen4 as shrm a,b is moved to LUN1 and LUN2 in partition layout
+$(call soong_config_set, bootctl.qti, skip_shrm_check, true)
 
 PRODUCT_PACKAGES += \
     update_engine_sideload
