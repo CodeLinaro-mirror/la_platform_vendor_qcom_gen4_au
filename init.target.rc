@@ -358,3 +358,6 @@ service agmplay /vendor/bin/agmplay /vendor/etc/bike_bell.wav -D 100 -d 100 -i T
 
 on property:sys.boot_completed=1
     mount vfat /dev/block/bootdevice/by-name/logfs /sys/kernel/debug/bookpi/bootloader_log
+
+on property:vendor.camera.qcxserver.restart=1
+    start qcxserver
