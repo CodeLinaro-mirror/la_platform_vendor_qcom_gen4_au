@@ -633,8 +633,6 @@ PRODUCT_VENDOR_PROPERTIES += ro.control_privapp_permissions=enforce
 
 #Disable LPM
 #PRODUCT_VENDOR_PROPERTIES += vendor.vehicle.lpm.enable=false
-#Disable DSQB
-PRODUCT_VENDOR_PROPERTIES += vendor.vehicle.dsqb.enable=false
 
 PRODUCT_PACKAGES += qcar-gsi.avbpubkey
 
